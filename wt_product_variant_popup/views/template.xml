@@ -1,0 +1,35 @@
+<odoo>
+	<template id="product_details_page" inherit_id="website_sale.product" name="product details page">
+		<xpath expr="//section[@id='product_detail']" position="after">
+			<div class="selection_confirm_popup"/>
+		</xpath> 
+	</template>
+	<template id="variant_popup" name="variant popup">
+		<div class="modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Selection Confirm</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&amp;times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <div class="form-check" t-foreach="datas" t-as="v_datas">
+				  <label class="form-check-label">
+				    <input type="radio" class="form-check-input" name="varinat_selection" t-att-value="v_datas.get('product_id')" t-att-data-product_id="v_datas.get('product_id')"
+				    t-att-data-combination_ids="v_datas.get('product_att_ids')">
+				    	<t t-esc="v_datas.get('display_name')"/>  <span class="pull-right" t-if="v_datas['price']" t-esc="v_datas['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+				    </input>
+				  </label>
+				</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary save_change_varinat_popup">Save changes</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</template>
+</odoo>
