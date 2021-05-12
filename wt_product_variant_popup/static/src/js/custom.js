@@ -37,6 +37,10 @@ publicWidget.registry.WebsiteSale.include({
 				$('.selection_confirm_popup .modal').modal('hide');
 				self.change_varinat_popup(ev);
 			});
+            $('.selection_confirm_popup .save_changes_close').click(function(ev){
+                $('.selection_confirm_popup .modal').modal('hide');
+                self.change_varinat_popup(ev);
+            });
 		});
 	},
 	change_varinat_popup: function(ev){

@@ -11,7 +11,7 @@ class WebsiteSale(WebsiteSale):
         product_variant_ids = product_templ_ids.product_variant_ids
         datas = []
         values = {}
-        for product in product_variant_ids[:4]:
+        for product in product_variant_ids:
             product_datas = {}
             if product.exists():
                 combination = product.product_template_attribute_value_ids
@@ -23,7 +23,7 @@ class WebsiteSale(WebsiteSale):
             if product_datas:
                 datas.append(product_datas)
         values['varinat_popup'] = request.env['ir.ui.view']._render_template("wt_product_variant_popup.variant_popup", {
-            'datas': datas,
+            'datas': datas[0:3],
             'website': request.website,
             'pricelist': pricelist
         })

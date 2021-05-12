@@ -17,7 +17,7 @@
 		      <div class="modal-body">
 		        <div class="form-check" t-foreach="datas" t-as="v_datas">
 				  <label class="form-check-label">
-				    <input type="radio" class="form-check-input" name="varinat_selection" t-att-value="v_datas.get('product_id')" t-att-data-product_id="v_datas.get('product_id')"
+				    <input type="radio" class="form-check-input" name="varinat_selection" checked="true" t-att-value="v_datas.get('product_id')" t-att-data-product_id="v_datas.get('product_id')"
 				    t-att-data-combination_ids="v_datas.get('product_att_ids')">
 				    	<t t-esc="v_datas.get('display_name')"/>  <span class="pull-right" t-if="v_datas['price']" t-esc="v_datas['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
 				    </input>
@@ -26,7 +26,7 @@
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-primary save_change_varinat_popup">Save changes</button>
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-secondary save_changes_close" data-dismiss="modal">Close</button>
 		      </div>
 		    </div>
 		  </div>
